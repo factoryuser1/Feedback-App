@@ -14,29 +14,27 @@ function App(props) {
 
     const showComments = true;
 
+    const commentBlock = (
+        <div className="comments">
+        <h3>Comments ({comments.length})</h3>
+        <ul>
+            {
+                comments.map((comment, index) =>(
+                            <li key={index}>
+                                Index is: {index}, Commend id is: {comment.id} and Comment is: {comment.text}
+                            </li>
+                        )
+                    )
+                }
+            </ul>
+        </div>
+    )
+
     return (
         <div className='container'>
             <h1>{title.toUpperCase()}</h1>
             <p>{body}</p>
-
-            {showComments &&(
-                <div className="comments">
-                    <h3>Comments ({comments.length})</h3>
-                    <ul>
-                        {
-                            comments.map((comment, index) =>(
-                                    <li key={index}>
-                                        Index is: {index},
-                                        Commend id is: {comment.id}
-                                        and Comment is: {comment.text}
-                                    </li>
-                                )
-                            )
-                        }
-                    </ul>
-                </div>
-                )
-            }
+            {showComments && commentBlock}
         </div>
     );
 }
