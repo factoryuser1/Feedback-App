@@ -5,7 +5,7 @@ function App(props) {
 
     return (
         <>
-            <Header text={true}/>
+            <Header />
             <div className='container'>
                 <h1>My App</h1>
             </div>
